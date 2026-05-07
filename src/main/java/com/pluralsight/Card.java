@@ -33,6 +33,23 @@ public class Card {
 
     public void getPointValue(){
 
+        //Ace
+        if (value.equals("A")){
+            return 11;
+
+            //Facecards
+        } else if (value.equals("j") || value.equals "Q" || value.equals "K") {
+            return 10;
+
+            //Number cards 2-10
+
+        }else{
+            return integer.parseInt(value);
+        }
+
+
+
+
     }
 
 
