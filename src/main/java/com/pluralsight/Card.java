@@ -4,53 +4,78 @@ public class Card {
 
     private String suit;
     private String value;
+    private boolean isFacedUp;
 
 
-    public Card(String value, String suit) {
-        this.value = value;
+    public Card(String suit, String value, boolean isFacedUp) {
         this.suit = suit;
+        this.value = value;
+        this.isFacedUp = isFacedUp;
     }
-
 
     public String getSuit() {
-        return suit;
-    }
+        //Only return the suit if the card is face up
+        if (isFacedUp){
+            return suit;
+        } else {
+            return "#";
+        }
 
-    public void setSuit(String suit) {
-        this.suit = suit;
     }
 
     public String getValue() {
-        return value;
-    }
+        // Only return the value if the value is face up
+        if (isFacedUp){
+            return value;
 
-    public void setValue(String value) {
-        this.value = value;
-    }
-
-
-
-
-    public void getPointValue(){
-
-        //Ace
-        if (value.equals("A")){
-            return 11;
-
-            //Facecards
-        } else if (value.equals("j") || value.equals "Q" || value.equals "K") {
-            return 10;
-
-            //Number cards 2-10
-
-        }else{
-            return integer.parseInt(value);
+        } else {
+            return "#";
         }
 
 
-
-
     }
+
+
+
+    public int getPointValue() {
+
+        // Only return the value if the card is face up
+        if (!isFacedUp) {
+            return 0;
+        }
+
+        if (value.equals("A")) {
+            return 11;
+
+        } else if (value.equals("J") || value.equals("Q") || value.equals("K")) {
+            return 10;
+
+        } else {
+            return Integer.parseInt(value);
+        }
+    }
+
+
+
+        public boolean isFacedUp() {
+
+            return isFacedUp;
+        }
+
+        public void flip() {
+            isFacedUp = !isFacedUp;
+        }
+
+    @Override
+    public String toString() {
+        return getValue() + " of " + getSuit();
+    }
+
+
+
+
+
+
 
 
 

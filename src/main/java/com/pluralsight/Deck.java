@@ -1,8 +1,8 @@
 package com.pluralsight;
-import
-import java.util.Collection;
+
 import java.util.ArrayList;
-import java.util.Collec
+import java.util.Collections;
+
 
 public class Deck {
 
@@ -18,7 +18,7 @@ public class Deck {
     public Deck(){
         cards = new ArrayList<>();
         String[] suits = {"Hearts", "Spades", "Diamonds", "Clubs"};
-        String[] values = {"2", "3", "4", "5", "6", "7", "8", "9", "10", "j", "Q", "K", "A"};
+        String[] values = {"2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K", "A"};
 
 
         /**
@@ -27,7 +27,7 @@ public class Deck {
 
         for (String suit: suits){
             for (String value: values){
-                Card card = new Card(suit, value);
+                Card card = new Card(suit, value, true);
                 cards.add(card);
 
             }
@@ -41,7 +41,7 @@ public class Deck {
     }
 
     public Card deal(){
-        //deal the top card (if there are many cards left
+        //deal the top card (if there are many cards left)
         if (cards.size() > 0){
             Card card = cards.remove(0);
             return card;

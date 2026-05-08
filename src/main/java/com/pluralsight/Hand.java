@@ -6,30 +6,31 @@ public class Hand {
         //Array list of cards, one hand can hold many cards
     private ArrayList<Card> cards;
 
-    public hand(){
+    public Hand(){
         cards = new ArrayList<>();
     }
 
 
-   //Constructor
-    public Hand(ArrayList<Card> cards) {
-        this.cards = cards;
-    }
-
-    //Card receiver
-    public void addCard(Card card){
+    //A card is dealt to the hand and the hand is responsible to store the card
+    public void dealCard(Card card){
         cards.add(card);
     }
 
+    public int getSize(){
+        return cards.size();
+    }
+
     //Score method
-    public int getValue{
-        int total = 0;
+    public int getValue(){
+        int value = 0;
         for (Card card : cards){
-            total += card.getPointValu();
+//            card.flip(); //turn the card over to see the value
+            value += card.getPointValue();
+//            card.flip(); //hides the card again
 
         }
 
-        return total;
+        return value;
     }
 
     @Override
@@ -45,5 +46,5 @@ public class Hand {
 
         return result;
     }
-    }
+
 }
